@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Roboto } from "next/font/google";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProviderWrapper } from "./provider/ThemeProvider"; // Import the theme provider
+import { ThemeProviderWrapper } from "../provider/ThemeProvider"; // Import the theme provider
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -37,10 +36,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}`}
       >
-        <AppRouterCacheProvider>
-          <ThemeProviderWrapper>{children}</ThemeProviderWrapper>{" "}
-          {/* Wrap the children */}
-        </AppRouterCacheProvider>
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>{" "}
+        {/* Wrap the children */}
       </body>
     </html>
   );
